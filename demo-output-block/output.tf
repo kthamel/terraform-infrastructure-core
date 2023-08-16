@@ -5,5 +5,5 @@
 
 output "new_s3_bucket-name_is" {
   description = "printing the newly created bucket name"
-  value = aws_s3_bucket.a-new-s3-bucket.id
+  value       = aws_s3_bucket.a-new-s3-bucket.id
 }

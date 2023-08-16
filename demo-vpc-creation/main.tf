@@ -1,8 +1,8 @@
 resource "aws_vpc" "iac-terraform" {
-    instance_tenancy = "default"
-    cidr_block = "172.32.0.0/16"
+  instance_tenancy = "default"
+  cidr_block       = "172.32.0.0/16"
 
-    tags = {
+  tags = {
     Name = "iac-terraform"
   }
 }

@@ -7,8 +7,8 @@ resource "aws_s3_bucket" "a-new-s3-bucket" {
 }
 
 resource "random_string" "test-string" {
-  length = 5
+  length  = 5
   special = false
-  lower = true
-  upper = false
+  lower   = true
+  upper   = false
 }
