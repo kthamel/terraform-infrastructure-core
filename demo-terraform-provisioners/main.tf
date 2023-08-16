@@ -19,8 +19,8 @@ resource "aws_key_pair" "ssh_key_pub" {
 resource "aws_instance" "demo-ec2" {
   ami             = "ami-08a52ddb321b32a8c"
   instance_type   = "t2.micro"
-  security_groups = ["sg-079949240623ebe3d"]
-  subnet_id       = "subnet-0f3a728bed8319097"
+  security_groups = ["sg-043ebf4a6843ed9fa"]
+  subnet_id       = "subnet-074038bd04c9a3b8b"
   key_name        = aws_key_pair.ssh_key_pub.key_name
   connection {
     user        = "ec2-user"
@@ -38,8 +38,8 @@ resource "aws_instance" "demo-ec2" {
   }
   provisioner "remote-exec" {
     inline = [
-      "rm -rf /tmp/*",
-      "echo Hello World > /tmp/kthamel-iac.txt"
+      "sudo rm -rf /tmp/*",
+      "sudo echo Hello World > /tmp/kthamel-iac.txt"
     ]
 
   }
