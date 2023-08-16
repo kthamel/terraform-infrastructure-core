@@ -3,10 +3,10 @@ terraform {
 }
 
 resource "random_string" "random_passwd" {
-  length = 10
+  length  = 10
   special = false
-  lower = true
-  upper = false
+  lower   = true
+  upper   = false
   numeric = true
 }
 

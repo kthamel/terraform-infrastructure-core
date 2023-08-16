@@ -3,9 +3,9 @@ resource "aws_s3_bucket" "demo_bucket" {
 }
 
 resource "random_string" "rand_string" {
-  length = 6
-  lower = true
-  upper = false
+  length  = 6
+  lower   = true
+  upper   = false
   numeric = true
   special = false
 }
