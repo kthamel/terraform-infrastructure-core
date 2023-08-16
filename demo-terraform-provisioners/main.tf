@@ -16,6 +16,15 @@ resource "aws_key_pair" "ssh_key_pub" {
   }
 }
 
+resource "aws_secretsmanager_secret" "ec2-private-key" {
+  name = "kthamel-ec2-private-key-password"
+}
+
+resource "aws_secretsmanager_secret_version" "password" {
+  secret_id     = aws_secretsmanager_secret.ec2-private-key.id
+  secret_string = tls_private_key.ssh_key.private_key_pem
+}
+
 resource "aws_instance" "demo-ec2" {
   ami             = "ami-08a52ddb321b32a8c"
   instance_type   = "t2.micro"
