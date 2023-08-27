@@ -1,3 +1,11 @@
+resource "aws_s3_bucket" "backend-s3-bucket" {
+  bucket = "kthamel-cloud-automation-modules"
+
+  tags = {
+    Name = "Terraform"
+  }
+}
+
 resource "aws_db_instance" "kthamel-postgres" {
   identifier        = "kthamel-postgres"
   db_name           = "POSTGRES"
@@ -6,10 +14,11 @@ resource "aws_db_instance" "kthamel-postgres" {
   engine            = "postgres"
   engine_version    = "15.3"
   allocated_storage = 20
-  password          = random_string.dbpasswd.result
+  password          = random_password.dbpasswd.result
+        
 }
 
-resource "random_string" "dbpasswd" {
+resource "random_password" "dbpasswd" {
   length  = 16
   special = false
   lower   = true
@@ -23,5 +32,5 @@ resource "aws_secretsmanager_secret" "password" {
 
 resource "aws_secretsmanager_secret_version" "password" {
   secret_id     = aws_secretsmanager_secret.password.id
-  secret_string = random_string.dbpasswd.result
+  secret_string = random_password.dbpasswd.result
 }
