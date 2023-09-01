@@ -7,19 +7,13 @@ resource "aws_s3_bucket" "backend-s3-bucket" {
 }
 
 module "postgresql" {
-  source = "../modules"
+    source = "../modules"
 }
 
 resource "aws_db_instance" "kthamel-postgres" {
-  engine            = "postgres"
-  engine_version    = "15.3"
-  identifier        = "kthamel-postgres"
-  db_name           = "POSTGRES"
-  username          = "userdba"
   instance_class    = "db.t3.micro"
-  allocated_storage = 20
-  password          = random_password.dbpasswd.result
 }
+
 
 resource "random_password" "dbpasswd" {
   length  = 16
