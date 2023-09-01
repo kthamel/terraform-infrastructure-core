@@ -5,6 +5,4 @@ module "postgresql" {
   backup_window       = "03:00-06:00"
   maintenance_window  = "Mon:00:00-Mon:03:00"
   deletion_protection = false
-  engine              = "postgres"
-  engine_version    = "15.3"
 }
