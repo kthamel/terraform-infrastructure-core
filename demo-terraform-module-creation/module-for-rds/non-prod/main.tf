@@ -6,7 +6,13 @@ resource "aws_s3_bucket" "backend-s3-bucket" {
   }
 }
 
+module "postgresql" {
+  source = "../modules"
+}
+
 resource "aws_db_instance" "kthamel-postgres" {
+  engine            = "postgres"
+  engine_version    = "15.3"
   identifier        = "kthamel-postgres"
   db_name           = "POSTGRES"
   username          = "userdba"
