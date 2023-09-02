@@ -1,7 +1,9 @@
 terraform {
   backend "s3" {
-    bucket = "kthamel-cloud-automation-s3-ld06a"
-    key    = "module-s3"
-    region = "us-east-1"
+    bucket         = "kthamel-cloud-automation-tfimport"
+    key            = "LockId"
+    region         = "us-east-1"
+    # dynamodb_table = "iac-terraform"
+    # encrypt        = true
   }
 }
