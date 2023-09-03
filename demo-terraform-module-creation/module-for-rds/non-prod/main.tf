@@ -1,19 +1,6 @@
-resource "aws_s3_bucket" "backend-s3-bucket" {
-  bucket = "kthamel-cloud-automation-modules"
-
-  tags = {
-    Name = "Terraform"
-  }
+module "demo-rds-1" {
+  source = "../modules/postgresql"
 }
-
-module "postgresql" {
-    source = "../modules"
-}
-
-resource "aws_db_instance" "kthamel-postgres" {
-  instance_class    = "db.t3.micro"
-}
-
 
 resource "random_password" "dbpasswd" {
   length  = 16
