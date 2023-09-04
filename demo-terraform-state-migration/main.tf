@@ -4,12 +4,11 @@ resource "aws_s3_bucket" "a-new-s3-bucket" {
   tags = {
     Name    = "Terraform"
     Project = "New-01"
-    New-Tag= "test"
   }
 }
 
 resource "random_string" "test-string" {
-  length  = 6
+  length  = 5
   special = false
   lower   = true
   upper   = false
