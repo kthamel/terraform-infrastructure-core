@@ -21,3 +21,19 @@ variable "cidr_block" {
     prod = "172.40.0.0/16"
   }
 }
+
+variable "avaiability_zone" {
+  type = map(string)
+  default = {
+    dev = "us-east-1a"
+    prod = "us-east-2a"
+  }
+}
+
+variable "ip_ranges" {
+  type = map(string)
+  default = {
+    dev = "172.32.0.0/24"
+    prod = "172.40.0.0/24"
+  }
+}
