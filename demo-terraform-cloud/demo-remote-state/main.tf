@@ -1,11 +1,11 @@
-resource "random_string" "demo-random-string" {
-    length = 10
-    numeric = true
-    lower = true
-    upper = false
-    special = false
+resource "aws_s3_bucket" "test-bucket" {
+  bucket = "kthamel-dev-bucket"
+
+  tags = {
+    Provisioned_By = "kthamel"
+  }
 }
 
-output "print-random-string" {
-  value = random_string.demo-random-string.id
+output "print_bucket_name" {
+  value = aws_s3_bucket.test-bucket.id
 }
