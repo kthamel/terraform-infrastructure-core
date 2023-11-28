@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "a-new-s3-bucket" {
-  bucket = "kthamel-cloud-automation-s3-${random_string.test-string.id}"
+  bucket = "kthamel-cloud-automation-s3-${random_string.rnd-string.id}"
 
   tags = {
     Name    = "Terraform"
@@ -7,7 +7,7 @@ resource "aws_s3_bucket" "a-new-s3-bucket" {
   }
 }
 
-resource "random_string" "test-string" {
+resource "random_string" "rnd-string" {
   length  = 5
   special = false
   lower   = true
